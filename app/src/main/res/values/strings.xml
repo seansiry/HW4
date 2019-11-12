@@ -9,4 +9,5 @@
     <string name="searchMessage">The most recent sighting for this zip code is:</string>
     <string name="species">Species:</string>
     <string name="sighter">Sighted By:</string>
+    <string name="report">Report</string>
 </resources>
