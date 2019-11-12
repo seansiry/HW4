@@ -33,11 +33,12 @@
     <EditText
         android:id="@+id/editText_Name"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
+        android:layout_marginTop="66dp"
         android:ems="10"
+        android:hint="@string/finderName"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_Zipcode" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,4 +2,5 @@
     <string name="app_name">HW4</string>
     <string name="birdName">Name of Bird</string>
     <string name="zipcode">Zipcode</string>
+    <string name="finderName">Name of Finder</string>
 </resources>
