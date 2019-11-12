@@ -10,7 +10,7 @@ import android.widget.EditText;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class ReportActivity extends AppCompatActivity  implements View.OnClickListener{
+public class ReportActivity extends AppCompatActivity implements View.OnClickListener{
     Button submitButton;
     EditText birdEditText, nameEditText, zipcodeEditText;
 
@@ -25,18 +25,19 @@ public class ReportActivity extends AppCompatActivity  implements View.OnClickLi
         submitButton = findViewById(R.id.button_submit);
 
         submitButton.setOnClickListener(this);
-
     }
 
     @Override
     public void onClick(View view) {
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference myRef = database.getReference("birdSightings");
+        if(view == submitButton) {
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            final DatabaseReference myRef = database.getReference("birdSightings");
 
-        String bird = birdEditText.getText().toString();
-        String zipcode = zipcodeEditText.getText().toString();
-        String name = nameEditText.getText().toString();
-        BirdSighting createSighting = new BirdSighting(bird, zipcode, name);
-        myRef.push().setValue(createSighting);
+            String bird = birdEditText.getText().toString();
+            String zipcode = zipcodeEditText.getText().toString();
+            String name = nameEditText.getText().toString();
+            BirdSighting createSighting = new BirdSighting(bird, zipcode, name);
+            myRef.push().setValue(createSighting);
+        }
     }
 }
