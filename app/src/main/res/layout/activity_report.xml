@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText_Zipcode"
+        android:id="@+id/editText_zipcode"
         android:layout_width="wrap_content"
         android:layout_height="45dp"
         android:layout_marginTop="66dp"
@@ -31,7 +31,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editText_bird" />
 
     <EditText
-        android:id="@+id/editText_Name"
+        android:id="@+id/editText_name"
         android:layout_width="wrap_content"
         android:layout_height="45dp"
         android:layout_marginTop="66dp"
@@ -40,5 +40,16 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_Zipcode" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_zipcode" />
+
+    <Button
+        android:id="@+id/button_submit"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="91dp"
+        android:text="@string/submit"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_name" />
 </androidx.constraintlayout.widget.ConstraintLayout>
