@@ -1,6 +1,7 @@
 package com.to626.hw4;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -14,6 +15,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -41,7 +45,39 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
             FirebaseDatabase database = FirebaseDatabase.getInstance();
             final DatabaseReference myRef = database.getReference("birdSightings");
 
+            String zipSearch = zipcodeEditText.getText().toString();
 
+            myRef.orderByChild("zipcode").equalTo(zipSearch).addChildEventListener(new ChildEventListener() {
+                @Override
+                public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                    //String findKey = dataSnapshot.getKey();
+                    BirdSighting foundBird = dataSnapshot.getValue(BirdSighting.class);
+                    String findSpecies = foundBird.species;
+                    String findSighter = foundBird.sighter;
+                    speciesTextView.setText(findSpecies);
+                    sighterTextView.setText(findSighter);
+                }
+
+                @Override
+                public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                }
+
+                @Override
+                public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+                }
+
+                @Override
+                public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
         }
     }
 
