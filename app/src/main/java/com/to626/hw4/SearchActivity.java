@@ -60,17 +60,29 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
 
                 @Override
                 public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
+                    BirdSighting foundBird = dataSnapshot.getValue(BirdSighting.class);
+                    String findSpecies = foundBird.species;
+                    String findSighter = foundBird.sighter;
+                    speciesTextView.setText(findSpecies);
+                    sighterTextView.setText(findSighter);
                 }
 
                 @Override
                 public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-
+                    BirdSighting foundBird = dataSnapshot.getValue(BirdSighting.class);
+                    String findSpecies = foundBird.species;
+                    String findSighter = foundBird.sighter;
+                    speciesTextView.setText(findSpecies);
+                    sighterTextView.setText(findSighter);
                 }
 
                 @Override
                 public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
+                    BirdSighting foundBird = dataSnapshot.getValue(BirdSighting.class);
+                    String findSpecies = foundBird.species;
+                    String findSighter = foundBird.sighter;
+                    speciesTextView.setText(findSpecies);
+                    sighterTextView.setText(findSighter);
                 }
 
                 @Override
