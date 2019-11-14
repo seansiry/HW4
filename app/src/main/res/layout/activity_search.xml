@@ -13,8 +13,8 @@
         android:layout_marginStart="45dp"
         android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/speciesStatic"
-        app:layout_constraintStart_toEndOf="@+id/speciesStatic" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/staticSpecies"
+        app:layout_constraintStart_toEndOf="@+id/staticSpecies" />
 
     <EditText
         android:id="@+id/editText_search"
@@ -52,7 +52,7 @@
         app:layout_constraintTop_toBottomOf="@+id/button_search" />
 
     <TextView
-        android:id="@+id/speciesStatic"
+        android:id="@+id/staticSpecies"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="88dp"
@@ -69,8 +69,8 @@
         android:layout_marginTop="48dp"
         android:text="@string/sighter"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/speciesStatic"
-        app:layout_constraintTop_toBottomOf="@+id/speciesStatic" />
+        app:layout_constraintStart_toStartOf="@+id/staticSpecies"
+        app:layout_constraintTop_toBottomOf="@+id/staticSpecies" />
 
     <TextView
         android:id="@+id/textView_sighter"
