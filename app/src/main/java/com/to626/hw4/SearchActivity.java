@@ -45,8 +45,12 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
             FirebaseDatabase database = FirebaseDatabase.getInstance();
             final DatabaseReference myRef = database.getReference("birdSightings");
 
-            String zipSearch = zipcodeEditText.getText().toString();
-
+            String zipString = zipcodeEditText.getText().toString();
+            if(zipString.isEmpty()){
+                Toast.makeText(this, "Enter Zip Code to Search For", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            int zipSearch = Integer.parseInt(zipString);
             myRef.orderByChild("zipcode").equalTo(zipSearch).addChildEventListener(new ChildEventListener() {
                 @Override
                 public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {

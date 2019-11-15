@@ -40,10 +40,25 @@ public class ReportActivity extends AppCompatActivity implements View.OnClickLis
             final DatabaseReference myRef = database.getReference("birdSightings");
 
             String bird = birdEditText.getText().toString();
-            String zipcode = zipcodeEditText.getText().toString();
+            String zipString = zipcodeEditText.getText().toString();
             String name = nameEditText.getText().toString();
+            if(bird.isEmpty()){
+                Toast.makeText(this, "Enter Type of Bird for Sighting", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if(zipString.isEmpty()){
+                Toast.makeText(this, "Enter Zip Code for Sighting", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if(name.isEmpty()){
+                Toast.makeText(this, "Enter Birdwatcher Name for Sighting", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            int zipcode = Integer.parseInt(zipString);
             BirdSighting createSighting = new BirdSighting(bird, zipcode, name);
             myRef.push().setValue(createSighting);
+            String toastString = bird + " sighting at " + zipString + " by " + name + " added to database.";
+            Toast.makeText(this, toastString, Toast.LENGTH_SHORT).show();
         }
     }
 
